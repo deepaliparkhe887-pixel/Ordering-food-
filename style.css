@@ -1,0 +1,282 @@
+/* Online Food Ordering System */
+
+:root {
+  --orange: #f45b2a;
+  --orange-dark: #d94316;
+  --ink: #252525;
+  --muted: #6b7280;
+  --cream: #fff8f2;
+  --white: #ffffff;
+  --green: #168568;
+  --shadow: 0 12px 30px rgba(35, 25, 20, 0.09);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: #fffdfb;
+}
+
+a { color: inherit; }
+
+.site-header {
+  min-height: 76px;
+  padding: 16px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 3px 16px rgba(0,0,0,.06);
+}
+
+.logo {
+  text-decoration: none;
+  color: var(--orange);
+  font-size: 27px;
+  font-weight: 800;
+}
+
+nav { display: flex; align-items: center; gap: 25px; }
+
+nav a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+nav a:hover { color: var(--orange); }
+
+.cart-count {
+  display: inline-flex;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  justify-content: center;
+  align-items: center;
+  background: var(--orange);
+  color: white;
+  border-radius: 99px;
+  font-size: 12px;
+}
+
+.hero {
+  min-height: 390px;
+  padding: 55px 9%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  background: linear-gradient(120deg, #ff6b35, #ff9f43);
+  color: white;
+  overflow: hidden;
+}
+
+.hero-content { max-width: 650px; }
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  margin: 0 0 18px;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.08;
+}
+
+.hero-content > p:not(.eyebrow) {
+  max-width: 520px;
+  line-height: 1.7;
+  font-size: 17px;
+  margin-bottom: 28px;
+}
+
+.primary-link {
+  display: inline-block;
+  padding: 13px 22px;
+  border-radius: 9px;
+  background: white;
+  color: var(--orange-dark);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.primary-link:hover { transform: translateY(-2px); }
+
+.hero-emoji {
+  font-size: clamp(110px, 20vw, 220px);
+  filter: drop-shadow(0 15px 10px rgba(100, 30, 0, .15));
+}
+
+.section-wrap { width: min(1120px, 88%); margin: 0 auto; }
+
+.menu-section { padding: 65px 0 75px; }
+
+.section-heading { text-align: center; margin-bottom: 28px; }
+
+.section-heading .eyebrow { color: var(--orange); }
+
+.section-heading h2 {
+  margin: 0 0 10px;
+  font-size: clamp(28px, 4vw, 36px);
+}
+
+.section-heading > p:last-child { color: var(--muted); margin: 0; }
+
+.search-label {
+  display: block;
+  width: min(500px, 100%);
+  margin: 0 auto 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.search-input {
+  display: block;
+  width: min(500px, 100%);
+  margin: 0 auto 32px;
+  padding: 14px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 16px;
+  outline-color: var(--orange);
+}
+
+.food-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.food-card {
+  background: white;
+  border: 1px solid #f0ece8;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.food-card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(35,25,20,.13); }
+
+.food-visual {
+  height: 175px;
+  display: grid;
+  place-items: center;
+  background: var(--cream);
+  font-size: 75px;
+}
+
+.food-info { padding: 18px; }
+
+.food-info h3 { margin: 0 0 8px; font-size: 21px; }
+
+.food-info p { min-height: 42px; margin: 0 0 17px; color: var(--muted); line-height: 1.5; }
+
+.food-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+
+.price { color: var(--orange-dark); font-size: 21px; font-weight: 800; }
+
+.add-btn, .order-btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 14px;
+  background: var(--orange);
+  color: white;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.add-btn:hover { background: var(--orange-dark); }
+
+.no-results { grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 35px; }
+
+.cart-section { padding: 60px 0; background: var(--cream); }
+
+.cart-items { display: grid; gap: 12px; }
+
+.empty-cart { text-align: center; color: var(--muted); padding: 20px; background: white; border-radius: 10px; }
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 17px;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #f0ece8;
+}
+
+.cart-item h4 { margin: 0 0 6px; }
+
+.cart-item p { margin: 0; color: var(--muted); }
+
+.quantity-controls { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+
+.quantity-controls button {
+  min-width: 32px;
+  padding: 7px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--orange);
+  color: white;
+  cursor: pointer;
+}
+
+.quantity-controls .remove-btn { background: #333; }
+
+.cart-summary {
+  margin: 22px 0 0 auto;
+  padding: 22px;
+  width: min(320px, 100%);
+  background: white;
+  border-radius: 12px;
+  text-align: right;
+  box-shadow: var(--shadow);
+}
+
+.cart-summary p { margin: 0; color: var(--muted); }
+
+.cart-summary h3 { margin: 7px 0 18px; font-size: 28px; }
+
+.order-btn { background: var(--green); padding: 13px 22px; }
+
+.order-btn:hover { background: #106b53; }
+
+footer {
+  padding: 25px 15px;
+  background: #252525;
+  color: white;
+  text-align: center;
+  line-height: 1.8;
+}
+
+footer p { margin: 3px; }
+
+@media (max-width: 850px) {
+  .food-container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero { padding: 45px 6%; }
+}
+
+@media (max-width: 560px) {
+  .site-header { padding: 15px 5%; flex-direction: column; }
+  nav { gap: 17px; }
+  .hero { min-height: 330px; }
+  .hero-emoji { display: none; }
+  .food-container { grid-template-columns: 1fr; }
+  .section-wrap { width: 90%; }
+  .cart-item { align-items: flex-start; flex-direction: column; }
+  .cart-summary { text-align: center; }
+}
